@@ -1,12 +1,13 @@
-function Metronome(tempo, beatsPerMinute){
+function Metronome(tempo, beatsPerMeasure){
   this.tempo = tempo;
-  this.beatsPerMinute = beatsPerMinute;
+  this.beatsPerMeasure = beatsPerMeasure;
 }
 
-Metronome.prototype.beatsPerMinuteArray = function(){
-  var beatsPerMinuteArray = [];
-  for (var i = 1; i <= this.beatsPerMinute; i++){
-    beatsPerMinuteArray.push(i);
+Metronome.prototype.beatsPerMeasureArray = function(){
+  var beatsPerMeasureArray = [];
+  for (var i = 1; i <= this.beatsPerMeasure; i++){
+    beatsPerMeasureArray.push(i);
   };
-  return beatsPerMinuteArray;
+  return beatsPerMeasureArray;
+} 
 }
