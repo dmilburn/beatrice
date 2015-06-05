@@ -4,8 +4,14 @@ function Metronome(tempo, beatsPerMeasure){
 }
 
 Metronome.prototype.start = function(){
-  window.setInterval(this.updateCounterView, 1000, this.beatsPerMeasure);
+  var millisecondsToWait = this.tempoToMilliseconds(this.tempo);
+  window.setInterval(this.updateCounterView, millisecondsToWait, this.beatsPerMeasure);
 }
+
+Metronome.prototype.tempoToMilliseconds = function(tempo){
+  return (1000 * 60)/tempo;
+}
+
 Metronome.prototype.updateCounterView = function(beatsPerMeasure){
   var counter = document.getElementById("metronome-counter");
   var pastBeat = Number(counter.innerHTML);
