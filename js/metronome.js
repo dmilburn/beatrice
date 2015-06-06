@@ -6,25 +6,24 @@ function Metronome(tempo, beatsPerMeasure){
 
 Metronome.prototype.start = function(){
   var millisecondsToWait = this.tempoToMilliseconds(this.tempo);
-  this.interval = window.setInterval(this.updateCounterView, millisecondsToWait, this.beatsPerMeasure);
+  this.interval = window.setInterval(updateCounterView, millisecondsToWait, this);
 }
 
 Metronome.prototype.tempoToMilliseconds = function(tempo){
   return (1000 * 60)/tempo;
 }
 
-Metronome.prototype.updateCounterView = function(beatsPerMeasure){
+updateCounterView = function(metronome){
   var counter = document.getElementById("metronome-counter");
   var pastBeat = Number(counter.innerHTML);
-  if (pastBeat < beatsPerMeasure){
+  if (pastBeat < metronome.beatsPerMeasure){
     counter.innerHTML = pastBeat + 1;
   } else {
     counter.innerHTML = 1;
   }
-  
+}   
 
-  Metronome.prototype.stop = function(){
-    window.clearInterval(this.interval);
-    counter.innerHTML = "";
-  }
+Metronome.prototype.stop = function(){
+  window.clearInterval(this.interval);
+  counter.innerHTML = "";
 }
