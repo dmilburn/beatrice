@@ -1,12 +1,13 @@
 function Metronome(tempo, beatsPerMeasure){
   this.tempo = Number(tempo);
   this.beatsPerMeasure = Number(beatsPerMeasure);
+  this.interval = null;
 }
 
 Metronome.prototype.start = function(){
   $('#metronome-button').val("Stop");
   var millisecondsToWait = this.tempoToMilliseconds(this.tempo);
-  window.setInterval(this.updateCounterView, millisecondsToWait, this.beatsPerMeasure);
+  this.interval = window.setInterval(this.updateCounterView, millisecondsToWait, this.beatsPerMeasure);
 }
 
 Metronome.prototype.tempoToMilliseconds = function(tempo){
@@ -24,5 +25,6 @@ Metronome.prototype.updateCounterView = function(beatsPerMeasure){
   
 
   Metronome.prototype.stop = function(){
+    window.clearInterval(this.interval);
   }
 }
