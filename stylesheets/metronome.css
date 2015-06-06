@@ -17,3 +17,26 @@
   margin-right: auto;
 
 }
+
+#metronome-visual {
+  position: relative;
+  margin-top: 10px;
+  height: 200px;
+  width: 100px;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: brown;
+  border: 1px solid black;
+}
+
+#metronome-stick {
+  position: relative;
+  margin-top: 50px;
+  height: 150px;
+  width: 5px;
+  background-color: pink;
+  margin-right: auto;
+  margin-left: auto;
+  transform: rotate(20deg);
+  transform-origin: 50% 100%;
+}
