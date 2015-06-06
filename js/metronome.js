@@ -25,5 +25,6 @@ Metronome.prototype.updateCounterView = function(beatsPerMeasure){
 
   Metronome.prototype.stop = function(){
     window.clearInterval(this.interval);
+    counter.innerHTML = "";
   }
 }
