@@ -6,11 +6,15 @@ function Metronome(tempo, beatsPerMeasure){
 
 Metronome.prototype.start = function(){
   var millisecondsToWait = this.tempoToMilliseconds(this.tempo);
-  this.interval = window.setInterval(updateCounterView, millisecondsToWait, this);
+  this.interval = window.setInterval(soundAndCounter, millisecondsToWait, this);
 }
 
 Metronome.prototype.tempoToMilliseconds = function(tempo){
   return (1000 * 60)/tempo;
+}
+
+soundAndCounter = function(metronome){
+  updateCounterView(metronome);
 }
 
 updateCounterView = function(metronome){
@@ -21,7 +25,7 @@ updateCounterView = function(metronome){
   } else {
     counter.innerHTML = 1;
   }
-}   
+}
 
 Metronome.prototype.stop = function(){
   window.clearInterval(this.interval);
