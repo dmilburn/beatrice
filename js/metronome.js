@@ -2,11 +2,11 @@ function Metronome(tempo, beatsPerMeasure){
   this.tempo = Number(tempo);
   this.beatsPerMeasure = Number(beatsPerMeasure);
   this.interval = null;
+  this.tempoInMilliseconds = this.tempoToMilliseconds(this.tempo);
 }
 
 Metronome.prototype.start = function(){
-  var millisecondsToWait = this.tempoToMilliseconds(this.tempo);
-  this.interval = window.setInterval(soundAndCounter, millisecondsToWait, this);
+  this.interval = window.setInterval(soundAndCounter, this.tempoInMilliseconds, this);
 }
 
 Metronome.prototype.tempoToMilliseconds = function(tempo){
@@ -22,14 +22,14 @@ Metronome.prototype.stop = function(){
 soundAndCounter = function(metronome){
   updateCounterView(metronome);
   playSound();
-  moveStick();
+  moveStick(metronome);
 }
 
 playSound = function(){
   $('#beep')[0].play();
 }
 
-updateCounterView = function(metronome){
+updateCounterView = function(){
   var counter = document.getElementById("metronome-counter");
   var pastBeat = Number(counter.innerHTML);
   if (pastBeat < metronome.beatsPerMeasure){
@@ -39,7 +39,7 @@ updateCounterView = function(metronome){
   }
 }
 
-moveStick = function(){
+moveStick = function(metronome){
   var stick = $("#metronome-stick")
   stick.toggleClass("right");
   if (stick.hasClass("right")){
@@ -50,6 +50,6 @@ moveStick = function(){
   $("#metronome-stick").animate({ textIndent: degrees }, {
     step: function(degrees) {
         $(this).css('transform',"rotate(" + degrees + "deg)");
-    }, duration: 1200
+    }, duration: metronome.tempoInMilliseconds
   } );
 }
