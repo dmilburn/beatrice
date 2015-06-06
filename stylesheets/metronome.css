@@ -8,8 +8,8 @@
 }
 
 #metronome-counter {
-  height: 100px;
-  width: 100px;
+  height: 50px;
+  width: 50px;
   font-size: 50px;
   text-align: center;
   border: 1px solid black ;
@@ -31,7 +31,7 @@
 
 #metronome-stick {
   position: relative;
-  margin-top: 100px;
+  margin-top: 50px;
   height: 300px;
   width: 5px;
   background-color: pink;
