@@ -15,14 +15,14 @@
   border: 1px solid black ;
   margin-left: auto;
   margin-right: auto;
-
+  background-color: white;
 }
 
 #metronome-visual {
   position: relative;
   margin-top: 10px;
-  height: 200px;
-  width: 100px;
+  height: 400px;
+  width: 200px;
   margin-right: auto;
   margin-left: auto;
   background-color: brown;
@@ -31,8 +31,8 @@
 
 #metronome-stick {
   position: relative;
-  margin-top: 50px;
-  height: 150px;
+  margin-top: 100px;
+  height: 300px;
   width: 5px;
   background-color: pink;
   margin-right: auto;
