@@ -21,6 +21,11 @@ Metronome.prototype.stop = function(){
 
 soundAndCounter = function(metronome){
   updateCounterView(metronome);
+  playSound();
+}
+
+playSound = function(){
+  $('#beep')[0].play();
 }
 
 updateCounterView = function(metronome){
