@@ -7,9 +7,11 @@ $(document).ready(function(){
       var tempo = $("#tempo-field").val();
       var beatsPerMeasure = $("#beats-field").val();
       metronome = new Metronome(tempo, beatsPerMeasure);
+      $('.input-field').hide();
       metronome.start();
     } else {
       $('#metronome-button').val("Start");
+      $('.input-field').show();
       metronome.stop();
     }
   });
