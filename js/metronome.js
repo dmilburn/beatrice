@@ -50,6 +50,6 @@ moveStick = function(){
   $("#metronome-stick").animate({ textIndent: degrees }, {
     step: function(degrees) {
         $(this).css('transform',"rotate(" + degrees + "deg)");
-    }
+    }, duration: 1200
   } );
 }
