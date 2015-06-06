@@ -22,6 +22,7 @@ Metronome.prototype.stop = function(){
 soundAndCounter = function(metronome){
   updateCounterView(metronome);
   playSound();
+  moveStick();
 }
 
 playSound = function(){
@@ -38,3 +39,10 @@ updateCounterView = function(metronome){
   }
 }
 
+moveStick = function(){
+  var stick = $("#metronome-stick")
+  stick.toggleClass("right");
+  if (stick.hasClass("right")){
+  } else {
+  }
+}
