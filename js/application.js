@@ -14,4 +14,11 @@ $(document).ready(function(){
     }
 
   });
+
+
+  $("#metronome-stick").animate({ textIndent: 100 }, {
+    step: function(degrees) {
+        $(this).css('transform',"rotate(" + degrees + "deg)");
+    }
+  } );
 })
