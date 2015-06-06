@@ -5,7 +5,6 @@ function Metronome(tempo, beatsPerMeasure){
 }
 
 Metronome.prototype.start = function(){
-  $('#metronome-button').val("Stop");
   var millisecondsToWait = this.tempoToMilliseconds(this.tempo);
   this.interval = window.setInterval(this.updateCounterView, millisecondsToWait, this.beatsPerMeasure);
 }
