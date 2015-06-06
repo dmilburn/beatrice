@@ -22,4 +22,7 @@ Metronome.prototype.updateCounterView = function(beatsPerMeasure){
     counter.innerHTML = 1;
   }
   
+
+  Metronome.prototype.stop = function(){
+  }
 }
