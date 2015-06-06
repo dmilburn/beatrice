@@ -6,7 +6,7 @@ function Metronome(tempo, beatsPerMeasure){
 }
 
 Metronome.prototype.start = function(){
-  this.interval = window.setInterval(soundAndCounter, this.tempoInMilliseconds, this);
+  this.interval = window.setInterval(metronomeSoundAndView, this.tempoInMilliseconds, this);
 }
 
 Metronome.prototype.tempoToMilliseconds = function(tempo){
@@ -19,7 +19,7 @@ Metronome.prototype.stop = function(){
   counter.innerHTML = "";
 }
 
-soundAndCounter = function(metronome){
+metronomeSoundAndView = function(metronome){
   updateCounterView(metronome);
   playSound();
   moveStick(metronome);
