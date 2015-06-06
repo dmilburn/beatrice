@@ -20,4 +20,5 @@ Metronome.prototype.updateCounterView = function(beatsPerMeasure){
   } else {
     counter.innerHTML = 1;
   }
+  
 }
