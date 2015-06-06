@@ -13,6 +13,12 @@ Metronome.prototype.tempoToMilliseconds = function(tempo){
   return (1000 * 60)/tempo;
 }
 
+Metronome.prototype.stop = function(){
+  window.clearInterval(this.interval);
+  var counter = document.getElementById("metronome-counter");
+  counter.innerHTML = "";
+}
+
 soundAndCounter = function(metronome){
   updateCounterView(metronome);
 }
@@ -27,7 +33,3 @@ updateCounterView = function(metronome){
   }
 }
 
-Metronome.prototype.stop = function(){
-  window.clearInterval(this.interval);
-  counter.innerHTML = "";
-}
