@@ -12,13 +12,6 @@ $(document).ready(function(){
       $('#metronome-button').val("Start");
       metronome.stop();
     }
-
   });
 
-
-  $("#metronome-stick").animate({ textIndent: 100 }, {
-    step: function(degrees) {
-        $(this).css('transform',"rotate(" + degrees + "deg)");
-    }
-  } );
 })

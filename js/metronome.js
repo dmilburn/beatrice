@@ -43,6 +43,13 @@ moveStick = function(){
   var stick = $("#metronome-stick")
   stick.toggleClass("right");
   if (stick.hasClass("right")){
+    degrees = 20;
   } else {
+    degrees = -20;
   }
+  $("#metronome-stick").animate({ textIndent: degrees }, {
+    step: function(degrees) {
+        $(this).css('transform',"rotate(" + degrees + "deg)");
+    }
+  } );
 }
