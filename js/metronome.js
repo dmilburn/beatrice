@@ -20,13 +20,15 @@ Metronome.prototype.stop = function(){
 }
 
 metronomeSoundAndView = function(metronome){
+  moveStick(metronome);
   updateCounterView(metronome);
   playSound();
-  moveStick(metronome);
 }
 
 playSound = function(){
-  $('#beep')[0].play();
+  new Howl({
+    urls: ['audio/beep-07.wav']
+  }).play();
 }
 
 updateCounterView = function(){
