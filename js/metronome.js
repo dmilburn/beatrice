@@ -49,7 +49,7 @@ moveStick = function(metronome){
   } else {
     degrees = -20;
   }
-  $("#metronome-stick").animate({ textIndent: degrees }, {
+  $("#metronome-stick").stop().animate({ textIndent: degrees }, {
     step: function(degrees) {
         $(this).css('transform',"rotate(" + degrees + "deg)");
     }, duration: metronome.tempoInMilliseconds
