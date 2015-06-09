@@ -26,12 +26,12 @@ metronomeSoundAndView = function(metronome){
 }
 
 playSounds = function(metronome){
-  playSound(metronome);
+  playSound(metronome, 'audio/beep-07.wav');
 }
 
-playSound = function(metronome){
+playSound = function(metronome, fileName){
   new Howl({
-    urls: ['audio/beep-07.wav']
+    urls: [fileName]
   }).play();
 }
 
