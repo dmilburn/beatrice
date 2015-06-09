@@ -29,15 +29,15 @@ Metronome.prototype.changeSoundAndView = function(metronome){
 Metronome.prototype.playSounds = function(){
   playSound(this, 'audio/beep-07.wav');
   for (var i = 0; i < this.subdivisions.length; i++){
-    createSubdivisions(this, this.subdivisions[i]);
+    this.createSubdivisions(this.subdivisions[i]);
   }
 }
 
-createSubdivisions = function(metronome, divideTheBeatIn){
-  var subdivisionsInMilliseconds = (metronome.tempoInMilliseconds)/divideTheBeatIn;
+Metronome.prototype.createSubdivisions = function(divideTheBeatIn){
+  var subdivisionsInMilliseconds = (this.tempoInMilliseconds)/divideTheBeatIn;
   var i = 1;
   var subdivisions = window.setInterval(function(){ i++;
-    playSound(metronome, 'audio/beep-07.wav')
+    playSound(this, 'audio/beep-07.wav')
     if (i == divideTheBeatIn){
       clearInterval(subdivisions);}
     }, subdivisionsInMilliseconds)
