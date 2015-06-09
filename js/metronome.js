@@ -1,6 +1,7 @@
 function Metronome(tempo, beatsPerMeasure){
   this.tempo = Number(tempo);
   this.beatsPerMeasure = Number(beatsPerMeasure);
+  this.subdivisions = [2, 3];
   this.interval = null;
   this.tempoInMilliseconds = this.tempoToMilliseconds(this.tempo);
 }
@@ -27,9 +28,8 @@ metronomeSoundAndView = function(metronome){
 
 playSounds = function(metronome){
   playSound(metronome, 'audio/beep-07.wav');
-  var allSubdivisions = [3, 4]
-  for (var i = 0; i<allSubdivisions.length; i++){
-    createSubdivisions(metronome, allSubdivisions[i]);
+  for (var i = 0; i < metronome.subdivisions.length; i++){
+    createSubdivisions(metronome, metronome.subdivisions[i]);
   }
 }
 
