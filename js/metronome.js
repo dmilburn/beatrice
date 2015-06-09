@@ -27,7 +27,7 @@ Metronome.prototype.changeSoundAndView = function(metronome){
 }
 
 Metronome.prototype.playSounds = function(){
-  playSound(this, 'audio/beep-07.wav');
+  this.playSound('audio/beep-07.wav');
   for (var i = 0; i < this.subdivisions.length; i++){
     this.createSubdivisions(this.subdivisions[i]);
   }
@@ -37,13 +37,13 @@ Metronome.prototype.createSubdivisions = function(divideTheBeatIn){
   var subdivisionsInMilliseconds = (this.tempoInMilliseconds)/divideTheBeatIn;
   var i = 1;
   var subdivisions = window.setInterval(function(){ i++;
-    playSound(this, 'audio/beep-07.wav')
+    this.playSound('audio/beep-07.wav');
     if (i == divideTheBeatIn){
       clearInterval(subdivisions);}
-    }, subdivisionsInMilliseconds)
+    }.bind(this), subdivisionsInMilliseconds)
 }
 
-playSound = function(metronome, fileName){
+Metronome.prototype.playSound = function(fileName){
   new Howl({
     urls: [fileName]
   }).play();
