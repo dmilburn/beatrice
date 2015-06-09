@@ -23,13 +23,13 @@ Metronome.prototype.stop = function(){
 Metronome.prototype.changeSoundAndView = function(metronome){
   this.moveStick();
   this.updateCounterView();
-  playSounds(metronome);
+  this.playSounds();
 }
 
-playSounds = function(metronome){
-  playSound(metronome, 'audio/beep-07.wav');
-  for (var i = 0; i < metronome.subdivisions.length; i++){
-    createSubdivisions(metronome, metronome.subdivisions[i]);
+Metronome.prototype.playSounds = function(){
+  playSound(this, 'audio/beep-07.wav');
+  for (var i = 0; i < this.subdivisions.length; i++){
+    createSubdivisions(this, this.subdivisions[i]);
   }
 }
 
