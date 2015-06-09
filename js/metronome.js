@@ -21,7 +21,7 @@ Metronome.prototype.stop = function(){
 }
 
 Metronome.prototype.changeSoundAndView = function(metronome){
-  moveStick(metronome);
+  this.moveStick();
   updateCounterView(metronome);
   playSounds(metronome);
 }
@@ -59,7 +59,7 @@ updateCounterView = function(){
   }
 }
 
-moveStick = function(metronome){
+Metronome.prototype.moveStick = function(){
   var stick = $("#metronome-stick")
   stick.toggleClass("right");
   if (stick.hasClass("right")){
@@ -70,6 +70,6 @@ moveStick = function(metronome){
   $("#metronome-stick").stop().animate({ textIndent: degrees }, {
     step: function(degrees) {
         $(this).css('transform',"rotate(" + degrees + "deg)");
-    }, duration: metronome.tempoInMilliseconds
+    }, duration: this.tempoInMilliseconds
   } );
 }
