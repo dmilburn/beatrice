@@ -22,10 +22,14 @@ Metronome.prototype.stop = function(){
 metronomeSoundAndView = function(metronome){
   moveStick(metronome);
   updateCounterView(metronome);
-  playSound();
+  playSounds(metronome);
 }
 
-playSound = function(){
+playSounds = function(metronome){
+  playSound(metronome);
+}
+
+playSound = function(metronome){
   new Howl({
     urls: ['audio/beep-07.wav']
   }).play();
