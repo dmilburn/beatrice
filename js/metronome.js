@@ -27,7 +27,10 @@ metronomeSoundAndView = function(metronome){
 
 playSounds = function(metronome){
   playSound(metronome, 'audio/beep-07.wav');
-  createSubdivisions(metronome, 3);
+  var allSubdivisions = [3, 4]
+  for (var i = 0; i<allSubdivisions.length; i++){
+    createSubdivisions(metronome, allSubdivisions[i]);
+  }
 }
 
 createSubdivisions = function(metronome, divideTheBeatIn){
