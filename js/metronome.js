@@ -19,7 +19,7 @@ function Metronome(tempo, beatsPerMeasure, subdivisions){
 }
 
 Metronome.prototype.start = function(){
-  this.interval = window.setInterval(metronomeSoundAndView, this.tempoInMilliseconds, this);
+  this.interval = window.setInterval(this.metronomeSoundAndView.bind(this), this.tempoInMilliseconds, this);
 }
 
 Metronome.prototype.tempoToMilliseconds = function(tempo){
@@ -32,7 +32,7 @@ Metronome.prototype.stop = function(){
   counter.innerHTML = "";
 }
 
-metronomeSoundAndView = function(metronome){
+Metronome.prototype.metronomeSoundAndView = function(metronome){
   moveStick(metronome);
   updateCounterView(metronome);
   playSounds(metronome);
