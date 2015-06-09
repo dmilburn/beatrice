@@ -22,7 +22,7 @@ Metronome.prototype.stop = function(){
 
 Metronome.prototype.changeSoundAndView = function(metronome){
   this.moveStick();
-  updateCounterView(metronome);
+  this.updateCounterView();
   playSounds(metronome);
 }
 
@@ -49,10 +49,10 @@ playSound = function(metronome, fileName){
   }).play();
 }
 
-updateCounterView = function(){
+Metronome.prototype.updateCounterView = function(){
   var counter = document.getElementById("metronome-counter");
   var pastBeat = Number(counter.innerHTML);
-  if (pastBeat < metronome.beatsPerMeasure){
+  if (pastBeat < this.beatsPerMeasure){
     counter.innerHTML = pastBeat + 1;
   } else {
     counter.innerHTML = 1;
