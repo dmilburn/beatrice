@@ -27,6 +27,14 @@ metronomeSoundAndView = function(metronome){
 
 playSounds = function(metronome){
   playSound(metronome, 'audio/beep-07.wav');
+  var subdivisionsInMilliseconds = (metronome.tempoInMilliseconds)/5;
+  var i = 0;
+  var subdivisions = window.setInterval(function(){ i++;
+    console.log(i);
+    playSound(metronome, 'audio/beep-07.wav')
+    if (i == 4){
+      clearInterval(subdivisions);}
+    }, subdivisionsInMilliseconds)
 }
 
 playSound = function(metronome, fileName){
