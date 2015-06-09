@@ -6,7 +6,7 @@ $(document).ready(function(){
       $('#metronome-button').val("Stop");
       var tempo = $("#tempo-field").val();
       var beatsPerMeasure = $("#beats-field").val();
-      metronome = new Metronome(tempo, beatsPerMeasure);
+      metronome = new Metronome(tempo, beatsPerMeasure, [2, 3]);
       $('.input-field').hide();
       metronome.start();
     } else {

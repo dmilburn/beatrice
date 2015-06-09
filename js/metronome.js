@@ -1,7 +1,7 @@
-function Metronome(tempo, beatsPerMeasure){
+function Metronome(tempo, beatsPerMeasure, subdivisions){
   this.tempo = Number(tempo);
   this.beatsPerMeasure = Number(beatsPerMeasure);
-  this.subdivisions = [2, 3];
+  this.subdivisions = subdivisions;
   this.interval = null;
   this.tempoInMilliseconds = this.tempoToMilliseconds(this.tempo);
 }
