@@ -1,4 +1,5 @@
 $(document).ready(function(){
+  $("#metronome-visual").hide();
 
   $(".metronome-parameters").on("submit", function(event){
     event.preventDefault();
@@ -8,11 +9,13 @@ $(document).ready(function(){
       var beatsPerMeasure = $("#beats-field").val();
       var subdivisions = createSubdivisionsArray();
       metronome = new Metronome(tempo, beatsPerMeasure, subdivisions);
+      $("#metronome-visual").show();
       $('.input-field').hide();
       metronome.start();
     } else {
       $('#metronome-button').val("Start");
       $('.input-field').show();
+      $("#metronome-visual").hide();
       metronome.stop();
     }
   });
