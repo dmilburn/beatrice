@@ -1,7 +1,7 @@
 $(document).ready(function(){
   $("#metronome-visual").hide();
 
-  $(".metronome-parameters").on("submit", function(event){
+  $("#metronome-parameters").on("submit", function(event){
     event.preventDefault();
     if ($('#metronome-button').val() === "Start"){
       $('#metronome-button').val("Stop");
