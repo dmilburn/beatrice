@@ -40,3 +40,7 @@
   transform: rotate(20deg);
   transform-origin: 50% 100%;
 }
+
+.metronome-parameters input[type=text] {
+  font-size: 1em;
+}
