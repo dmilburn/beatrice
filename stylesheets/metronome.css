@@ -42,6 +42,10 @@
 }
 
 .metronome-parameters input[type=text] {
-  font-size: 1em;
+  font-size: .75em;
   width: 2em;
+}
+
+.metronome-parameters{
+  font-size: 1.5em;
 }
