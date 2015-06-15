@@ -6,10 +6,6 @@ function Metronome(tempo, beatsPerMeasure, subdivisions){
   this.tempoInMilliseconds = this.tempoToMilliseconds(this.tempo);
 }
 
-Metronome.prototype.start = function(){
-  this.interval = window.setInterval(this.changeSoundAndView.bind(this), this.tempoInMilliseconds);
-}
-
 Metronome.prototype.tempoToMilliseconds = function(tempo){
   return (1000 * 60)/tempo;
 }
@@ -20,43 +16,14 @@ Metronome.prototype.stop = function(){
   counter.innerHTML = "";
 }
 
+Metronome.prototype.start = function(){
+  this.interval = window.setInterval(this.changeSoundAndView.bind(this), this.tempoInMilliseconds);
+}
+
 Metronome.prototype.changeSoundAndView = function(){
   this.moveStick();
   this.updateCounterView();
   this.playSounds();
-}
-
-Metronome.prototype.playSounds = function(){
-  this.playSound('audio/beep-07.wav');
-  for (var i = 0; i < this.subdivisions.length; i++){
-    this.createSubdivisions(this.subdivisions[i]);
-  }
-}
-
-Metronome.prototype.createSubdivisions = function(divideTheBeatIn){
-  var subdivisionsInMilliseconds = (this.tempoInMilliseconds)/divideTheBeatIn;
-  var i = 1;
-  var subdivisions = window.setInterval(function(){ i++;
-    this.playSound('audio/beep-07.wav');
-    if (i == divideTheBeatIn){
-      clearInterval(subdivisions);}
-    }.bind(this), subdivisionsInMilliseconds)
-}
-
-Metronome.prototype.playSound = function(fileName){
-  new Howl({
-    urls: [fileName]
-  }).play();
-}
-
-Metronome.prototype.updateCounterView = function(){
-  var counter = document.getElementById("metronome-counter");
-  var pastBeat = Number(counter.innerHTML);
-  if (pastBeat < this.beatsPerMeasure){
-    counter.innerHTML = pastBeat + 1;
-  } else {
-    counter.innerHTML = 1;
-  }
 }
 
 Metronome.prototype.moveStick = function(){
@@ -72,4 +39,37 @@ Metronome.prototype.moveStick = function(){
         $(this).css('transform',"rotate(" + degrees + "deg)");
     }, duration: this.tempoInMilliseconds
   } );
+}
+
+Metronome.prototype.updateCounterView = function(){
+  var counter = document.getElementById("metronome-counter");
+  var pastBeat = Number(counter.innerHTML);
+  if (pastBeat < this.beatsPerMeasure){
+    counter.innerHTML = pastBeat + 1;
+  } else {
+    counter.innerHTML = 1;
+  }
+}
+
+Metronome.prototype.playSounds = function(){
+  this.playSound('audio/beep-07.wav');
+  for (var i = 0; i < this.subdivisions.length; i++){
+    this.createSubdivisions(this.subdivisions[i]);
+  }
+}
+
+Metronome.prototype.playSound = function(fileName){
+  new Howl({
+    urls: [fileName]
+  }).play();
+}
+
+Metronome.prototype.createSubdivisions = function(divideTheBeatIn){
+  var subdivisionsInMilliseconds = (this.tempoInMilliseconds)/divideTheBeatIn;
+  var i = 1;
+  var subdivisions = window.setInterval(function(){ i++;
+    this.playSound('audio/beep-07.wav');
+    if (i == divideTheBeatIn){
+      clearInterval(subdivisions);}
+    }.bind(this), subdivisionsInMilliseconds)
 }
