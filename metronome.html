@@ -10,24 +10,24 @@
     <title> Beatrice </title>
   </head>
   <body>
+    <div id="content">
+      <h1 id = "title">Meet Beatrice</h1>
+      <h2 id = "subtitle"> A Javascript Metronome </h2>
+      <form id = "metronome-parameters">
+        <p class = "input-field">Tempo: <input type="text" name="tempo" id="tempo-field" value="60" required></p>
+        <p class = "input-field">Beats per measure: <input type="text" name="beats" id="beats-field" value="4" required></p>
+        <p class="input-field">Subdivisons:</p>
+        <p class="input-field">Eighths: <input id = "eighths" type="checkbox" name="subdivisions"></p>
+        <p class="input-field">Triplets: <input id = "triplets" type="checkbox" name="subdivisions"></p>
+        <p class="input-field">Sixteenths: <input id = "sixteenths" type="checkbox" name="subdivisions"></p>
+        <p class="input-field">Quintuplets: <input id = "quintuplets" type="checkbox" name="subdivisions"></p>
+        <p><input type="submit" name="submit" value="Start" id="metronome-button"></p>
+      </form>
 
-    <h1 id = "title">Meet Beatrice</h1>
-    <h2 id = "subtitle"> A Javascript Metronome </h2>
-    <form id = "metronome-parameters">
-      <p class = "input-field">Tempo: <input type="text" name="tempo" id="tempo-field" value="60" required></p>
-      <p class = "input-field">Beats per measure: <input type="text" name="beats" id="beats-field" value="4" required></p>
-      <p class="input-field">Subdivisons:</p>
-      <p class="input-field">Eighths: <input id = "eighths" type="checkbox" name="subdivisions"></p>
-      <p class="input-field">Triplets: <input id = "triplets" type="checkbox" name="subdivisions"></p>
-      <p class="input-field">Sixteenths: <input id = "sixteenths" type="checkbox" name="subdivisions"></p>
-      <p class="input-field">Quintuplets: <input id = "quintuplets" type="checkbox" name="subdivisions"></p>
-      <p><input type="submit" name="submit" value="Start" id="metronome-button"></p>
-    </form>
-
-    <div id="metronome-visual">
-      <div id="metronome-counter"></div>
-      <div id="metronome-stick" class="right"></div>
+      <div id="metronome-visual">
+        <div id="metronome-counter"></div>
+        <div id="metronome-stick" class="right"></div>
+      </div>
     </div>
-
   </body>
 </html>
