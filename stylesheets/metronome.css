@@ -13,6 +13,7 @@ body {
 }
 
 #metronome-parameters {
+  margin-top: 2em;
   text-align: center;
   font-size: 1.5em;
 }
