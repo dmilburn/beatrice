@@ -58,6 +58,7 @@ body {
 }
 
 #content {
+  font-family: 'Open Sans Condensed', sans-serif;
   margin-right: auto;
   margin-left: auto;
   background-color: #EEEEEE;
