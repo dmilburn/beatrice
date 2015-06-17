@@ -59,6 +59,7 @@ body {
 #content {
   margin-right: auto;
   margin-left: auto;
-  background-color: blue;
+  background-color: #EEEEEE;
+  border: 3px solid DarkCyan;
   width: 50%;
 }
